@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: nb;
+	src: url('/fonts/nbinternationalproreg-webfont.eot');
+	src:
+		url('/fonts/nbinternationalproreg-webfont.eot?#iefix')
+			format('embedded-opentype'),
+		url('/fonts/nbinternationalproreg-webfont.woff2') format('woff2'),
+		url('/fonts/nbinternationalproreg-webfont.woff') format('woff'),
+		url('/fonts/nbinternationalproreg-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@layer components {
+	html {
+		scrollbar-gutter: stable;
+	}
+
+	body {
+		font-size: 1.125rem;
+		line-height: 1.25;
+		@apply text-gray;
+	}
+
+	a,
+	button {
+		@apply focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500;
+	}
+}
+
+/** Typography */
+
+body {
+	font-size: 1.125rem;
+	line-height: 1.5;
+}
+
+.font-size-headline {
+	font-size: 2rem;
+	line-height: 1.25;
+}
+
+@media screen and (min-width: 768px) {
+	.font-size-headline {
+		font-size: 2.7rem;
+	}
+}
+
+.font-size-text {
+	font-size: 1.5rem;
+	line-height: 1.25;
+}
+
+.font-size-small {
+	font-size: 0.875rem;
+	line-height: 1.25;
+}
+
+.line-height-1 {
+	line-height: 1;
+}
+
+.line-height-1-5 {
+	line-height: 1.5;
+}

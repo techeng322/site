@@ -1,0 +1,14 @@
+{
+	"extends": "next/core-web-vitals",
+	"rules": {
+		"import/order": [
+			"warn",
+			{
+				"newlines-between": "never",
+				"pathGroupsExcludedImportTypes": ["builtin"]
+			}
+		],
+		"@next/next/no-img-element": "off",
+		"no-unused-vars": "warn"
+	}
+}

@@ -1,0 +1,67 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Administrator\AppData\Local\Programs\Python\Python39;C:\Program Files\Go\bin;C:\Program Files\dotnet\;C:\Program Files\Java\jdk-17.0.1\bin;C:\Maven\bin;C:\Program Files\PuTTY\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Users\Administrator\AppData\Local\Android\Sdk\platform-tools;C:\Users\Administrator\AppData\Local\Android\Sdk\tools;C:\Users\Administrator\AppData\Local\Android\Sdk\tools\bin;D:\flutter\bin;D:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Git\bin;C:\Users\Administrator\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Ruby31-x64\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Local\Programs\Python\Python39;C:\Users\Administrator\go\bin;C:\Program Files\Java\jdk-17.0.1\bin;C:\Maven\bin;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Edument Central Europe\Comma Community Edition 2023.04.0\bin;;C:\Users\Administrator\AppData\Local\Android\Sdk\platform-tools;C:\Users\Administrator\AppData\Local\Android\Sdk\tools;D:\flutter\bin;D:\xampp\php;C:\Users\Administrator\AppData\Roaming\Composer\vendor\bin;C:\ProgramData\ComposerSetup\bin;C:\Users\Administrator\AppData\Local\Android\Sdk\tools\bin;C:\Users\Administrator\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;C:\Program Files\Git\bin;C:\Users\Administrator\AppData\Roaming\npm\bin;C:\Users\Administrator\AppData\Local\Yarn\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\ProgramData\nvm;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  21.2.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\GithubSrc\HenryZiad\nft-capsules\apps\site\package.json: Expected double-quoted property name in JSON at position 860 (line 36 column 2)
+      at JSON.parse (<anonymous>)
+      at C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+  	"name": "player-site",
+  	"version": "0.1.0",
+  	"private": true,
+  	"scripts": {
+  		"build": "next build",
+  		"dev": "next dev",
+  		"lint": "next lint",
+  		"start": "next start"
+  	},
+  	"dependencies": {
+  		"@dnd-kit/core": "^6.1.0",
+  		"@dnd-kit/sortable": "^8.0.0",
+  		"@privy-io/react-auth": "^1.66.1",
+  		"@tokenbound/sdk": "^0.5.1",
+  		"@types/node": "20.4.2",
+  		"@types/react": "^18.2.15",
+  		"@types/react-dom": "^18.2.7",
+  		"autoprefixer": "^10.4.14",
+  		"axios": "^1.5.0",
+  		"eslint": "8.45.0",
+  		"eslint-config-next": "^13.4.12",
+  		"ethers": "^5.0.0",
+  		"firebase": "^10.5.2",
+  		"framer-motion": "^10.16.4",
+  		"next": "13.4.10",
+  		"next-api-decorators": "^2.0.2",
+  		"postcss": "^8.4.26",
+  		"react": "18.2.0",
+  		"react-dom": "18.2.0",
+  		"react-hot-toast": "^2.4.1",
+  		"react-icons": "^5.0.1",
+  		"tailwindcss": "^3.3.3",
+  		"typescript": "5.1.6",
+  		"viem": "^1.10.9",
+  	}
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
