@@ -10,7 +10,7 @@ const CapsuleItem = ({ capsule }: { capsule: Capsule }) => {
 	const [trackedTime, setTrackedTime] = useState(0);
 
 	useEffect(() => {
-		let timeTracker;
+		let timeTracker: any;
 		if (trackedTime === -1) return;
 		if (trackedTime >= 4) {
 			setTrackedTime(0);

@@ -26,7 +26,7 @@ export const MusicProvider = ({ children }: any) => {
 		>
 			{children}
 			{activeTrackSrc && (
-				<audio ref={audioRef} src={activeTrackSrc} className="hidden" />
+				<audio ref={audioRef} src={`/api/v2/play?trackUrl=${activeTrackSrc}`} className="hidden" />
 			)}
 		</MusicContext.Provider>
 	);
