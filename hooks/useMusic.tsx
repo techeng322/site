@@ -45,7 +45,7 @@ const useMusic = () => {
 			setActiveTrackSrc(newUrl);
 		};
 		if (activeTrackSrc && audioRef.current && isPlaying) {
-			audioRef.current.src = activeTrackSrc;
+			audioRef.current.src = `/api/v2/play?trackUrl=${activeTrackSrc}`;
 			audioRef.current.addEventListener('error', () => gatewayFb(gateway));
 		}
 		if (isPlaying) {
