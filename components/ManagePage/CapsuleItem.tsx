@@ -12,7 +12,7 @@ const CapsuleItem = ({ capsule }: { capsule: Capsule }) => {
 	useEffect(() => {
 		let timeTracker: any;
 		if (trackedTime === -1) return;
-		if (trackedTime >= 4) {
+		if (trackedTime >= 10) {
 			setTrackedTime(0);
 			setKey((prev) => prev + 1);
 			return;
