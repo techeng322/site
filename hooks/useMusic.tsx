@@ -23,7 +23,7 @@ const useMusic = () => {
 		const trackActive = activeTrackId === getTrackId(track);
 		if (!trackActive) {
 			const audioUrl = getLink(track.meta.animationUrl, 0) as string;
-			setActiveTrackSrc(audioUrl);
+			setActiveTrackSrc(`/api/v2/play?trackUrl=${audioUrl}`);
 			setActiveTrackId(getTrackId(track));
 			setGateway(0);
 			setActiveTrack(track);
@@ -42,7 +42,7 @@ const useMusic = () => {
 			if (!activeTrack || gate > gateways.length - 1) return;
 			const newUrl = getLink(activeTrack.meta.animationUrl, gate + 1) as string;
 			setGateway(gate + 1);
-			setActiveTrackSrc(newUrl);
+			setActiveTrackSrc(`/api/v2/play?trackUrl=${newUrl}`);
 		};
 		if (activeTrackSrc && audioRef.current && isPlaying) {
 			audioRef.current.src = `/api/v2/play?trackUrl=${activeTrackSrc}`;
