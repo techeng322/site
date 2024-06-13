@@ -1,25 +1,36 @@
-import handleTxError from '@/lib/handleTxError';
 import axios from 'axios';
-import { pipeline } from 'stream';
-import { promisify } from 'util';
-
-const pipelineAsync = promisify(pipeline);
 
 export const config = {
-  api: {
-    responseLimit: false,
-  },
-}
-export default async function handler(req: any, res: any) {
-  const { trackUrl } = req.query;
+  runtime: "edge",
+};
 
-  try {
-    const response = await axios.get(trackUrl, { responseType: 'stream' });
-    res.setHeader('Content-Type', response.headers['content-type']);
-    res.setHeader('Transfer-Encoding', 'chunked');
+export default async function handler(req: any) {
+  const trackUrl = req.nextUrl.searchParams.get("trackUrl") as string;
 
-    await pipelineAsync(response.data, res);
-  } catch (error: any) {
-    throw Error(error)
-  }
+  const response = await axios.get(trackUrl, { responseType: 'stream' });
+
+  const readable = new ReadableStream({
+    async start(controller) {
+      const reader = response.data.getReader();
+
+      const read = async () => {
+        const { done, value } = await reader.read();
+        if (done) {
+          controller.close();
+          return;
+        }
+        controller.enqueue(value);
+        await read();
+      };
+
+      await read();
+    },
+  });
+
+  return new Response(readable, {
+    headers: {
+      "Content-Type": response.headers['content-type'],
+      "Transfer-Encoding": "chunked",
+    },
+  });
 }
