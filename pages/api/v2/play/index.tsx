@@ -7,11 +7,11 @@ export const config = {
 export default async function handler(req: any) {
   const trackUrl = req.nextUrl.searchParams.get("trackUrl") as string;
 
-  const response = await axios.get(trackUrl, { responseType: 'stream' });
+  const response: any = await fetch(trackUrl);
 
   const readable = new ReadableStream({
     async start(controller) {
-      const reader = response.data.getReader();
+      const reader = response.body.getReader();
 
       const read = async () => {
         const { done, value } = await reader.read();
