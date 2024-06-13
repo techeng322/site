@@ -23,7 +23,7 @@ const useMusic = () => {
 		const trackActive = activeTrackId === getTrackId(track);
 		if (!trackActive) {
 			const audioUrl = getLink(track.meta.animationUrl, 0) as string;
-			setActiveTrackSrc(`/api/v2/play?trackUrl=${audioUrl}`);
+			setActiveTrackSrc(`${audioUrl}`);
 			setActiveTrackId(getTrackId(track));
 			setGateway(0);
 			setActiveTrack(track);
@@ -38,24 +38,24 @@ const useMusic = () => {
 	const audioRef = useRef<HTMLAudioElement>(null);
 
 	useEffect(() => {
-		const gatewayFb = async (gate: number) => {
-			if (!activeTrack || gate > gateways.length - 1) return;
-			const newUrl = getLink(activeTrack.meta.animationUrl, gate + 1) as string;
-			setGateway(gate + 1);
-			setActiveTrackSrc(`/api/v2/play?trackUrl=${newUrl}`);
-		};
-		if (activeTrackSrc && audioRef.current && isPlaying) {
-			audioRef.current.src = `/api/v2/play?trackUrl=${activeTrackSrc}`;
-			audioRef.current.addEventListener('error', () => gatewayFb(gateway));
-		}
+		// const gatewayFb = async (gate: number) => {
+		// 	if (!activeTrack || gate > gateways.length - 1) return;
+		// 	const newUrl = getLink(activeTrack.meta.animationUrl, gate + 1) as string;
+		// 	setGateway(gate + 1);
+		// 	setActiveTrackSrc(`${newUrl}`);
+		// };
+		// if (activeTrackSrc && audioRef.current && isPlaying) {
+		// 	audioRef.current.src = `${activeTrackSrc}`;
+		// 	audioRef.current.addEventListener('error', () => gatewayFb(gateway));
+		// }
 		if (isPlaying) {
 			audioRef.current?.play();
 		} else {
 			audioRef.current?.pause();
 		}
 
-		return () =>
-			audioRef.current?.removeEventListener('error', () => gatewayFb(gateway));
+		// return () =>
+			// audioRef.current?.removeEventListener('error', () => gatewayFb(gateway));
 	}, [activeTrackSrc, isPlaying, activeTrack, gateway]);
 
 	return {
