@@ -16,7 +16,8 @@ export default async function handler(req: any, res: any) {
   try {
     const response = await axios.get(trackUrl, { responseType: 'stream' });
     res.setHeader('Content-Type', response.headers['content-type']);
-    res.setHeader('Content-Length', response.headers['content-length']);
+    res.setHeader('Transfer-Encoding', 'chunked');
+
     await pipelineAsync(response.data, res);
   } catch (error: any) {
     throw Error(error)
